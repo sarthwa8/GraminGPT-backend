@@ -70,7 +70,7 @@ def find_nearby_places(latitude: float, longitude: float, place_type: str, radiu
                     "address": address if address else "Address not available",
                     "rating": "N/A", # OSM does not have a rating system
                 })
-        return places[:5] # Limit to top 5 results
+        return places[:6] # Limit to top 6 results
     except requests.exceptions.RequestException as e:
         print(f"❌ OpenStreetMap API Error: {e}")
         return []
