@@ -4,6 +4,7 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import uvicorn
 from dotenv import load_dotenv
+from typing import Optional # <-- ADDED THIS IMPORT
 
 import llm  # Your existing llm.py
 
@@ -15,8 +16,9 @@ load_dotenv()
 
 class AiQuery(BaseModel):
     text: str
-    latitude: float | None = None
-    longitude: float | None = None
+    # --- THESE LINES ARE NOW UPDATED FOR COMPATIBILITY ---
+    latitude: Optional[float] = None
+    longitude: Optional[float] = None
 
 class NearbyQuery(BaseModel):
     latitude: float
